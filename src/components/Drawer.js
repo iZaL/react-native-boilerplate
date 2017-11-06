@@ -18,28 +18,39 @@ export default class Drawer extends Component {
   };
 
   state = {
-    activeRoute: 'Home',
+    activeRoute: 'HomeStack',
   };
 
   render() {
     return (
       <View style={styles.container}>
+
         <DrawerItem
           title={I18n.t('home')}
-          routeName="Home"
+          routeName="HomeStack"
           onItemPress={this.onItemPress}
           icon="ios-paper-plane"
-          active={this.state.activeRoute === 'Home'}
+          active={this.state.activeRoute === 'HomeStack'}
+        />
+
+        <Separator />
+
+        <DrawerItem
+          title={I18n.t('create_order')}
+          routeName="CreateOrderStack"
+          onItemPress={this.onItemPress}
+          icon="ios-paper-plane"
+          active={this.state.activeRoute === 'CreateOrderStack'}
         />
 
         <Separator />
 
         <DrawerItem
           title={I18n.t('settings')}
-          routeName="Settings"
+          routeName="SettingsStack"
           onItemPress={this.onItemPress}
           icon="ios-paper-plane"
-          active={this.state.activeRoute === 'Settings'}
+          active={this.state.activeRoute === 'SettingsStack'}
         />
       </View>
     );

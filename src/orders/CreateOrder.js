@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Text, TouchableHighlight, View} from 'react-native';
+import {connect} from 'react-redux';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-export default class Settings extends Component {
+class CreateOrder extends Component {
   // static navigationOptions = ({navigation}) => {
   //   return {
   //     headerLeft: (
@@ -11,7 +12,7 @@ export default class Settings extends Component {
   //         onPress={() =>
   //           navigation.state.params &&
   //           navigation.state.params.handleLeftButtonPress()}>
-  //         <FontAwesome name="bars" size={30} style={{padding: 10}} />
+  //         <FontAwesome name="bars" size={30} style={{padding: 10}}/>
   //       </TouchableHighlight>
   //     ),
   //   };
@@ -33,10 +34,16 @@ export default class Settings extends Component {
         style={{flex: 1, justifyContent: 'center', backgroundColor: 'white'}}>
         <Text
           style={{textAlign: 'center', fontSize: 40}}
-          onPress={() => this.props.navigation.navigate('CreateOrder')}>
-          Settings
+          onPress={() => this.props.navigation.navigate('Home')}>
+          Create Order
         </Text>
       </View>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {};
+}
+
+export default connect(mapStateToProps)(CreateOrder);

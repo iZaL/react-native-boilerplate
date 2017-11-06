@@ -30,7 +30,7 @@ export default class LoginScene extends Component {
       handleRegisterRoute,
       handleForgotPasswordRoute,
       busy,
-      onSkip
+      onSkip,
     } = this.props;
 
     return (
@@ -76,7 +76,6 @@ export default class LoginScene extends Component {
           <Text style={[styles.link]}>{I18n.t('forgot_password')}</Text>
         </TouchableHighlight>
 
-
         <TouchableHighlight
           onPress={() => onSkip()}
           style={{paddingTop: 100}}
@@ -84,7 +83,6 @@ export default class LoginScene extends Component {
           disabled={busy}>
           <Text style={[styles.link]}>{I18n.t('skip')}</Text>
         </TouchableHighlight>
-
       </View>
     );
   }

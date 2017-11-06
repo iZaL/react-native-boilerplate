@@ -6,6 +6,9 @@ import {DrawerNavigator, StackNavigator} from 'react-navigation';
 import Drawer from 'components/Drawer';
 import Home from 'home/Home';
 import Settings from 'home/Settings';
+import CreateOrder from 'orders/CreateOrder';
+import {TouchableHighlight} from 'react-native';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const AuthStack = StackNavigator(
   {
@@ -29,20 +32,80 @@ const AuthStack = StackNavigator(
   },
 );
 
-const Stack = StackNavigator({
-    Home: {screen: Home},
+const HomeStack = StackNavigator(
+  {
+    Home: {
+      screen: Home,
+      navigationOptions: ({navigation}) => ({
+        gesturesEnabled: false,
+        headerLeft: (
+          <TouchableHighlight
+            underlayColor="transparent"
+            onPress={() => navigation.navigate('DrawerToggle')}>
+            <FontAwesome name="bars" size={30} style={{paddingLeft: 20}} />
+          </TouchableHighlight>
+        ),
+      }),
+    },
+    CreateOrder: {screen: CreateOrder},
     Settings: {screen: Settings},
   },
 
-  {navigationOptions: {gesturesEnabled: false}}
+  {navigationOptions: {gesturesEnabled: false}},
+);
+
+const CreateOrderStack = StackNavigator(
+  {
+    CreateOrder: {
+      screen: CreateOrder,
+      navigationOptions: ({navigation}) => ({
+        gesturesEnabled: false,
+        headerLeft: (
+          <TouchableHighlight
+            underlayColor="transparent"
+            onPress={() => navigation.navigate('DrawerToggle')}>
+            <FontAwesome name="bars" size={30} style={{paddingLeft: 20}} />
+          </TouchableHighlight>
+        ),
+      }),
+    },
+    Home: {screen: Home},
+    Settings: {screen: Settings},
+  },
+  {navigationOptions: {gesturesEnabled: false}},
+);
+
+const SettingsStack = StackNavigator(
+  {
+    Settings: {
+      screen: Settings,
+      navigationOptions: ({navigation}) => ({
+        gesturesEnabled: false,
+        headerLeft: (
+          <TouchableHighlight
+            underlayColor="transparent"
+            onPress={() => navigation.navigate('DrawerToggle')}>
+            <FontAwesome name="bars" size={30} style={{paddingLeft: 20}} />
+          </TouchableHighlight>
+        ),
+      }),
+    },
+    Home: {screen: Home},
+    CreateOrder: {screen: CreateOrder},
+  },
+
+  {navigationOptions: {gesturesEnabled: false}},
 );
 
 const DrawerRoutes = {
-  Screen1: {
-    screen: Stack,
+  HomeStack: {
+    screen: HomeStack,
   },
-  Screen2: {
-    screen: Stack
+  CreateOrderStack: {
+    screen: CreateOrderStack,
+  },
+  SettingsStack: {
+    screen: SettingsStack
   }
 };
 
@@ -78,6 +141,6 @@ export default (Navigator = StackNavigator(
   },
   {
     headerMode: 'none',
-    initialRouteName: 'Auth',
+    // initialRouteName: 'Auth',
   },
 ));

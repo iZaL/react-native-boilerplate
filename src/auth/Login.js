@@ -81,7 +81,6 @@ class Login extends Component {
         onFieldChange={this.onFieldChange}
         busy={auth.login.busy}
         onRightButtonPress={this.goBack}
-
       />
     );
   }

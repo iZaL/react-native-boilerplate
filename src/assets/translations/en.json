@@ -29,5 +29,6 @@
   "yes" : "Yes",
   "required": "Required",
   "save":"Save",
-  "home" : "Home"
+  "home" : "Home",
+  "create_order": "Create Order"
 }
