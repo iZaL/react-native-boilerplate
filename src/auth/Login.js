@@ -65,6 +65,10 @@ class Login extends Component {
     this.props.navigation.dispatch(navigationAction);
   };
 
+  onSkip = () => {
+    this.props.navigation.navigate('Main');
+  };
+
   render() {
     const {auth} = this.props;
     return (
@@ -73,9 +77,11 @@ class Login extends Component {
         handleLogin={this.handleLogin}
         handleRegisterRoute={this.handleRegisterRoute}
         handleForgotPasswordRoute={this.handleForgotPasswordRoute}
+        onSkip={this.onSkip}
         onFieldChange={this.onFieldChange}
         busy={auth.login.busy}
         onRightButtonPress={this.goBack}
+
       />
     );
   }

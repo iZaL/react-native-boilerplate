@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
-import {StatusBar, View} from 'react-native';
+import {View} from 'react-native';
 import {connect} from 'react-redux';
 import {addNavigationHelpers} from 'react-navigation';
 import Navigator from 'common/navigator';
@@ -11,7 +11,6 @@ import {CODEPUSH_ENABLED} from 'env';
 import PushNotificationManager from './components/PushNotificationManager';
 import Notification from './components/Notification';
 import {ACTIONS} from './common/actions';
-import colors from '../assets/theme/colors';
 
 class App extends Component {
   static propTypes = {

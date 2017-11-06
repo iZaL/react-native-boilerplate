@@ -7,19 +7,18 @@ import {NavigationActions} from 'react-navigation';
 import colors from 'assets/theme/colors';
 import I18n from 'common/locale';
 import DrawerItem from 'components/DrawerItem';
-import Separator from "components/Separator";
+import Separator from 'components/Separator';
 
 export default class Drawer extends Component {
-
   onItemPress = (routeName: string) => {
     this.setState({
-      activeRoute: routeName
+      activeRoute: routeName,
     });
     this.props.navigation.navigate(routeName);
   };
 
   state = {
-    activeRoute: 'Home'
+    activeRoute: 'Home',
   };
 
   render() {
@@ -33,7 +32,7 @@ export default class Drawer extends Component {
           active={this.state.activeRoute === 'Home'}
         />
 
-        <Separator/>
+        <Separator />
 
         <DrawerItem
           title={I18n.t('settings')}
@@ -42,7 +41,6 @@ export default class Drawer extends Component {
           icon="ios-paper-plane"
           active={this.state.activeRoute === 'Settings'}
         />
-
       </View>
     );
   }

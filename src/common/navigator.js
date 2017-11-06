@@ -5,8 +5,7 @@ import Forgot from 'auth/Forgot';
 import {DrawerNavigator, StackNavigator} from 'react-navigation';
 import Drawer from 'components/Drawer';
 import Home from 'home/Home';
-import Settings from "home/Settings";
-import colors from 'assets/theme/colors';
+import Settings from 'home/Settings';
 
 const AuthStack = StackNavigator(
   {
@@ -25,25 +24,26 @@ const AuthStack = StackNavigator(
       cardStack: {
         gesturesEnabled: false,
       },
-      cardStyle: {backgroundColor: 'transparent'},
-      headerStyle: {backgroundColor: colors.primary},
     },
     initialRouteName: 'LoginScreen',
   },
 );
 
-const Stack = {
-  Home: {screen: Home},
-  Settings: {screen: Settings},
-};
+const Stack = StackNavigator({
+    Home: {screen: Home},
+    Settings: {screen: Settings},
+  },
+
+  {navigationOptions: {gesturesEnabled: false}}
+);
 
 const DrawerRoutes = {
   Screen1: {
-    screen: StackNavigator(Stack),
+    screen: Stack,
   },
   Screen2: {
-    screen: StackNavigator(Stack),
-  },
+    screen: Stack
+  }
 };
 
 const DrawerStack = DrawerNavigator(DrawerRoutes, {
@@ -73,12 +73,11 @@ const DrawerStack = DrawerNavigator(DrawerRoutes, {
 
 export default (Navigator = StackNavigator(
   {
-    Drawer: {screen: DrawerStack},
-    // Drawer: {screen: DrawerNavigation},
+    Main: {screen: DrawerStack},
     Auth: {screen: AuthStack},
   },
   {
     headerMode: 'none',
-    // initialRouteName: 'Auth'
+    initialRouteName: 'Auth',
   },
 ));
